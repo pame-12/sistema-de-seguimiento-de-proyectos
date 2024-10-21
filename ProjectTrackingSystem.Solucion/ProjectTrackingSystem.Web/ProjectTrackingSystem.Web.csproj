@@ -6,4 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectTrackingSystem.Application\ProjectTrackingSystem.Application.csproj" />
+    <ProjectReference Include="..\ProjectTrackingSystem.Domain\ProjectTrackingSystem.Domain.csproj" />
+    <ProjectReference Include="..\ProjectTrackingSystem.Infrastructure\ProjectTrackingSystem.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
