@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectTrackingSystem.Domain.core
+namespace ProjectTrackingSystem.Infrastructure.Models
 {
-    public abstract class BaseEntity
+    public class ProjectModel
     {
-        public int Id { get; set; }
     }
 }

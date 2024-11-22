@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProjectTrackingSystem.Domain.Entities;
 
-namespace ProjectTrackingSystem.Infrastructure.Data
+namespace ProjectTrackingSystem.Infrastructure.Context
 {
     public class AppDbContext : DbContext
     {

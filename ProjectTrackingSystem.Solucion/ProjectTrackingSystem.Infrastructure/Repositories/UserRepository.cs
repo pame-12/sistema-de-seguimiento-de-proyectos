@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectTrackingSystem.Domain.core
+namespace ProjectTrackingSystem.Infrastructure.Repositories
 {
-    public abstract class BaseEntity
+    internal class UserRepository
     {
-        public int Id { get; set; }
     }
 }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectTrackingSystem.Domain.core
+namespace ProjectTrackingSystem.Infrastructure.Interfaces
 {
-    public abstract class BaseEntity
+    public interface ITaskRepository
     {
-        public int Id { get; set; }
     }
 }
