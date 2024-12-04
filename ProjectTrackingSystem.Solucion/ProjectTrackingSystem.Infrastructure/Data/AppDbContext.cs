@@ -1,13 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProjectTrackingSystem.Domain.Entities;
 
-namespace ProjectTrackingSystem.Infrastructure.Context
+namespace ProjectTrackingSystem.Infrastructure.Data
 {
     public class AppDbContext : DbContext
     {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
+
         public DbSet<Project> Projects { get; set; }
         public DbSet<ProjectTrackingSystem.Domain.Entities.Task> Tasks { get; set; }
         public DbSet<User> Users { get; set; }
+        public object Task { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -18,9 +23,15 @@ namespace ProjectTrackingSystem.Infrastructure.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Configuración de entidades
-            modelBuilder.Entity<Project>().ToTable("projects");
+            modelBuilder.Entity<Project>().ToTable("projects")
+                .HasMany(p => p.Tasks)
+                .WithOne(t => t.Project)
+                .HasForeignKey(t => t.ProjectId); ;
             modelBuilder.Entity<ProjectTrackingSystem.Domain.Entities.Task>().ToTable("tasks");
-            modelBuilder.Entity<User>().ToTable("users");
+            modelBuilder.Entity<User>().ToTable("users")
+                .HasMany(u => u.Tasks)
+                .WithOne(t => t.User) // Asegúrate de que `Task` tenga una propiedad `UserId` o similar
+                .HasForeignKey(t => t.UserId);
         }
     }
 }

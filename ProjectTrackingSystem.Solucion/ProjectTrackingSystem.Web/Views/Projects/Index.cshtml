@@ -1,0 +1,32 @@
+﻿@model List<ProjectTrackingSystem.Domain.Entities.Project>
+
+<h1>Projects</h1>
+
+
+<p>
+    <a href="@Url.Action("Create", "Projects")" class="btn btn-primary">Create New Project</a>
+</p>
+
+
+<!-- Tabla para mostrar los proyectos -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>@project.Name</td>
+                <td>@project.Description</td>
+                <td>@project.StartDate.ToShortDateString()</td>
+                <td>@project.EndDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

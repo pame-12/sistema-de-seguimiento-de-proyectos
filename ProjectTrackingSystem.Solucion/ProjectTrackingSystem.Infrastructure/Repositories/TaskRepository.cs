@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectTrackingSystem.Infrastructure.Repositories
 {
-    internal class TaskRepository
+    public class TaskRepository
     {
     }
 }

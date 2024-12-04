@@ -1,0 +1,17 @@
+﻿@model ProjectTrackingSystem.Domain.Entities.Task
+
+<h1>Delete Task</h1>
+<p>Are you sure you want to delete the following task?</p>
+<div>
+    <h3>@Model.Description</h3>
+    <p><strong>Status:</strong> @Model.Status</p>
+    <p><strong>Due Date:</strong> @Model.DueDate.ToShortDateString()</p>
+    <p><strong>Project:</strong> @Model.Project.Name</p>
+    <p><strong>Assigned User:</strong> @Model.User.FirstName @Model.User.LastName</p>
+</div>
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="/Tasks" class="btn btn-secondary">Cancel</a>
+</form>
+

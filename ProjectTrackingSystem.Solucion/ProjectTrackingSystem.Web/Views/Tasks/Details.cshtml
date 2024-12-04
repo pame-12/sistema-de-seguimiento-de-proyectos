@@ -1,0 +1,12 @@
+﻿@model ProjectTrackingSystem.Domain.Entities.Task
+
+<h1>Task Details</h1>
+<div>
+    <h3>@Model.Description</h3>
+    <p><strong>Status:</strong> @Model.Status</p>
+    <p><strong>Due Date:</strong> @Model.DueDate.ToShortDateString()</p>
+    <p><strong>Project:</strong> @Model.Project.Name</p>
+    <p><strong>Assigned User:</strong> @Model.User.FirstName @Model.User.LastName</p>
+</div>
+<a href="/Tasks" class="btn btn-secondary">Back to List</a>
+

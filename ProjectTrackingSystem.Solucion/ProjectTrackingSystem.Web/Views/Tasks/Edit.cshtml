@@ -1,0 +1,28 @@
+﻿@model ProjectTrackingSystem.Domain.Entities.Task
+
+<h1>Create Task</h1>
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="Status">Status</label>
+        <input asp-for="Status" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="DueDate">Due Date</label>
+        <input asp-for="DueDate" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="ProjectId">Project</label>
+        <select asp-for="ProjectId" asp-items="ViewBag.Projects" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label for="UserId">Assigned User</label>
+        <select asp-for="UserId" asp-items="ViewBag.Users" class="form-control"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="/Tasks" class="btn btn-secondary">Cancel</a>
+</form>
+

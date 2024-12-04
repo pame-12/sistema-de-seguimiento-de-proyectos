@@ -14,6 +14,7 @@
     <ProjectReference Include="..\ProjectTrackingSystem.Application\ProjectTrackingSystem.Application.csproj" />
     <ProjectReference Include="..\ProjectTrackingSystem.Domain\ProjectTrackingSystem.Domain.csproj" />
     <ProjectReference Include="..\ProjectTrackingSystem.Infrastructure\ProjectTrackingSystem.Infrastructure.csproj" />
+    <ProjectReference Include="..\ProjectTrackingSystem.Web\ProjectTrackingSystem.Web.csproj" />
   </ItemGroup>
 
 </Project>
