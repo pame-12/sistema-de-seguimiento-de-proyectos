@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ProjectTrackingSystem.Application.Services;
-using ProjectTrackingSystem.Domain.Entities;
 using System.Linq;
 using DomainTask = ProjectTrackingSystem.Domain.Entities.Task; // Alias para evitar conflicto con System.Threading.Tasks.Task
 
@@ -24,6 +23,8 @@ namespace ProjectTrackingSystem.Web.Controllers
         {
             var tasks = await _taskService.GetTasksAsync();
             return View(tasks);
+
+
         }
 
         public async Task<IActionResult> Create()

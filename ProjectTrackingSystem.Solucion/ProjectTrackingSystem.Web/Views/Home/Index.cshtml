@@ -1,4 +1,59 @@
-﻿@* Views/Home/Index.cshtml *@
-<h1>Welcome to the Project Tracking System</h1>
-<p>Manage your projects, tasks, and users efficiently.</p>
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+
+<div class="container mt-5">
+    <!-- Header Section -->
+    <div class="text-center">
+        <h1 class="display-4 text-primary">Welcome to the Project Tracking System</h1>
+        <p class="lead text-muted">Manage your projects, tasks, and users efficiently.</p>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="row mt-5">
+        <!-- Card 1 -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-folder2-open display-4 text-primary"></i>
+                    <h5 class="card-title mt-3">Manage Projects</h5>
+                    <p class="card-text">Create, edit, and track the progress of your projects with ease.</p>
+                    <a href="@Url.Action("Index", "Projects")" class="btn btn-primary">Go to Projects</a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-check2-square display-4 text-success"></i>
+                    <h5 class="card-title mt-3">Track Tasks</h5>
+                    <p class="card-text">Assign tasks, monitor progress, and stay on schedule.</p>
+                    <a href="@Url.Action("Index", "Tasks")" class="btn btn-success">View Tasks</a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-people display-4 text-warning"></i>
+                    <h5 class="card-title mt-3">Manage Users</h5>
+                    <p class="card-text">Add, edit, and assign users to different tasks and projects.</p>
+                    <a href="@Url.Action("Index", "Users")" class="btn btn-warning">View Users</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="text-center mt-5">
+        <p class="text-muted">&copy; 2024 Project Tracking System. All rights reserved.</p>
+    </div>
+</div>
 

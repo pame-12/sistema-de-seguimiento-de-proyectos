@@ -1,37 +1,51 @@
-﻿@model List<ProjectTrackingSystem.Domain.Entities.Task>
+﻿@model IEnumerable<ProjectTrackingSystem.Domain.Entities.Task>
 
-<h1>Tasks</h1>
-<a href="/Tasks/Create" class="btn btn-primary">Create New Task</a>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th>Due Date</th>
-            <th>Project</th>
-            <th>Assigned User</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var task in Model)
-        {
+@{
+    ViewBag.Title = "Task Management";
+}
+
+
+<h2 class="text-center mb-4">Task Management</h2>
+
+<div class="container">
+    <div class="d-flex justify-content-between mb-3">
+        <a href="@Url.Action("Create", "Tasks")" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Create New Task
+        </a>
+    </div>
+    <table class="table table-bordered table-hover table-striped shadow-sm">
+        <thead class="table-dark">
             <tr>
-                <td>@task.Title</td>
-                <td>@task.Description</td>
-                <td>@task.Status</td>
-                <td>@task.DueDate.ToShortDateString()</td>
-                <td>@(task.Project != null ? task.Project.Name : "No Project")</td>
-                <td>@(task.User != null ? $"{task.User.FirstName} {task.User.LastName}" : "No User Assigned")</td>
-
-                
-                <td>
-                    <a href="/Tasks/Details/@task.Id" class="btn btn-info btn-sm">Details</a>
-                    <a href="/Tasks/Edit/@task.Id" class="btn btn-warning btn-sm">Edit</a>
-                    <a href="/Tasks/Delete/@task.Id" class="btn btn-danger btn-sm">Delete</a>
-                </td>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Due Date</th>
+                <th>Project</th>
+                <th>Assigned User</th>
+                <th class="text-center">Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var task in Model)
+            {
+                <tr>
+                    <td>@task.Title</td>
+                    <td>@task.Description</td>
+                    <td>@task.Status</td>
+                    <td>@task.DueDate.ToString("MM/dd/yyyy")</td>
+                    <td>@task.Project.Name</td>
+                    <td>@task.User.FirstName @task.User.LastName</td>
+                    <td class="text-center">
+                        <div class="btn-group" role="group">
+                            <a href="@Url.Action("Edit", "Tasks", new { id = task.Id })" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="@Url.Action("Details", "Tasks", new { id = task.Id })" class="btn btn-info btn-sm">Details</a>
+                            <a href="@Url.Action("Delete", "Tasks", new { id = task.Id })" class="btn btn-danger btn-sm">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
 

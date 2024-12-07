@@ -17,11 +17,17 @@ namespace ProjectTrackingSystem.Domain.Entities
         [Column("project_id")]
         public int ProjectId { get; set; } 
 
-        public  Project Project { get; set; }
+        public  Project? Project { get; set; }
 
         [Column("user_id")]
         public int UserId { get; set; } 
-        public  User User { get; set; } 
+        public  User? User { get; set; }
+
+        public Task()
+        {
+            Project = null;  // O puedes omitir si no deseas asignar valores por defecto
+            User = null;  // Lo mismo para User
+        }
 
 
 

@@ -1,32 +1,43 @@
-﻿@model List<ProjectTrackingSystem.Domain.Entities.Project>
+﻿@model IEnumerable<ProjectTrackingSystem.Domain.Entities.Project>
 
-<h1>Projects</h1>
+@{
+    ViewData["Title"] = "Projects";
+}
 
-
-<p>
-    <a href="@Url.Action("Create", "Projects")" class="btn btn-primary">Create New Project</a>
-</p>
-
-
-<!-- Tabla para mostrar los proyectos -->
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="container mt-4">
+    <h2 class="text-center text-primary">Projects</h2>
+    <p class="text-center text-muted">Manage all your projects efficiently in one place.</p>
+    
+    <div class="row">
         @foreach (var project in Model)
         {
-            <tr>
-                <td>@project.Name</td>
-                <td>@project.Description</td>
-                <td>@project.StartDate.ToShortDateString()</td>
-                <td>@project.EndDate.ToShortDateString()</td>
-            </tr>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">@project.Name</h5>
+                        <p class="card-text text-muted">@project.Description</p>
+                        <p><strong>Start Date:</strong> @project.StartDate.ToShortDateString()</p>
+                        <p><strong>End Date:</strong> @project.EndDate.ToShortDateString()</p>
+                        <div class="d-flex justify-content-between">
+                            <a href="@Url.Action("Details", "Projects", new { id = project.Id })" class="btn btn-info btn-sm">
+                                <i class="bi bi-eye"></i> Details
+                            </a>
+                            <a href="@Url.Action("Edit", "Projects", new { id = project.Id })" class="btn btn-warning btn-sm">
+                                <i class="bi bi-pencil"></i> Edit
+                            </a>
+                            <a href="@Url.Action("Delete", "Projects", new { id = project.Id })" class="btn btn-danger btn-sm">
+                                <i class="bi bi-trash"></i> Delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         }
-    </tbody>
-</table>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="@Url.Action("Create", "Projects")" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Create New Project
+        </a>
+    </div>
+</div>

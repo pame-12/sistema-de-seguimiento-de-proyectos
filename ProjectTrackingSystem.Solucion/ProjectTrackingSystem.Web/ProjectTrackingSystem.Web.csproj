@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EPPlus" Version="7.5.1" />
+    <PackageReference Include="itext7" Version="9.0.0" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ProjectTrackingSystem.Application\ProjectTrackingSystem.Application.csproj" />
     <ProjectReference Include="..\ProjectTrackingSystem.Domain\ProjectTrackingSystem.Domain.csproj" />
     <ProjectReference Include="..\ProjectTrackingSystem.Infrastructure\ProjectTrackingSystem.Infrastructure.csproj" />
